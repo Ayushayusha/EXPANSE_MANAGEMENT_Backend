@@ -24,13 +24,6 @@ app.use("/api/budget", budgetRoutes);
 
 app.get("/", (req, res) => res.send({ success: true, message: "Expense Tracker API" }));
 
-app.get("/env-test", (req, res) => {
-  res.json({
-    frontend: process.env.FRONTEND_URL,
-    dashboard: process.env.DASHBOARD_URL,
-    mongo: process.env.MONGODB_URI ? "exists" : "missing"
-  });
-});
 
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
